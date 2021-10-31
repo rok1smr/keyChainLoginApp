@@ -10,17 +10,16 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var dynamicUserNameLabel: UILabel!
-    @IBOutlet weak var dynamicPasswordLabel: UILabel!
     @IBOutlet weak var userCredentials: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
     
     var userGreetinLabel: String = ""
-    var userPasswordLabel: String = ""
     var userCred: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logOutButton.layer.cornerRadius = 10
         dynamicUserNameLabel.text = "User: \(userGreetinLabel)"
-        dynamicPasswordLabel.text = ""
         userCredentials.text = "Your password is: \(userCred)"
     }
     

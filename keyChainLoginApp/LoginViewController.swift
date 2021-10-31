@@ -23,11 +23,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil);
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
     }
     
-//    метод который сохраняет логин и пароль в кичейн
+    //    метод который сохраняет логин и пароль в кичейн
     private func submit() {
         guard
             let myPassword = passwordTextField.text, !myPassword.isEmpty,
@@ -37,20 +37,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         let passwordData = Data(myPassword.utf8)
-
+        
         keyChainClass.save(key: myUsername, data: passwordData)
     }
     
-//    implementation of unwind segue in the destination VC
     @IBAction func unwind( _ seg: UIStoryboardSegue) {
     }
     
-//    functions neede to shift the contents of the screen when keyboard appears
+    //    передвигает элементы интерфейса вверх когда появляется клавиатура
     @objc func keyboardWillShow(sender: NSNotification) {
-         self.view.frame.origin.y = -50 // Move view 150 points upward
+        self.view.frame.origin.y = -50
     }
     @objc func keyboardWillHide(sender: NSNotification) {
-         self.view.frame.origin.y = 0 // Move view to original position
+        self.view.frame.origin.y = 0
     }
     
     
@@ -97,20 +96,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let result = String(decoding: myPassword, as: UTF8.self)
             self.passwordReminder = result
         }
-// если пользователь помнит свой логин, то напоминаем ему пароль
+        // если пользователь помнит свой логин, то напоминаем ему пароль
         showAlert(title: "For user: \(userNameTextField.text ?? "")", message: "Password is: \(passwordReminder)" )
     }
     
-//    функция которая выполняется при нажатии кнопки логин
+    //    функция которая выполняется при нажатии кнопки логин
     @IBAction func loginButtonPressedWithoutSender() {
         submit()
         performSegue(withIdentifier: "toWelcomeScreen", sender: UIButton.self)
     }
     
-//    описание сегвея который происходит при нажатии на кнопку логин
+    //    описание сегвея который происходит при нажатии на кнопку логин
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-//      прерываем переход если поля пустые
+        
+        //      прерываем переход если поля пустые
         guard let checkLogin = userNameTextField.text, !checkLogin.isEmpty else {
             showAlert(title: "Wrong User Name or Password", message: "One or all fields are empty")
             return
@@ -123,16 +122,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.userGreetinLabel = userNameTextField.text ?? ""
         
-        if let myPassword = keyChainClass.getKeyChainData(key: userNameTextField.text!) {
-            let result = String(decoding: myPassword, as: UTF8.self)
-            welcomeVC.userPasswordLabel = result
-        }
-        
         if let myCredentials = keyChainClass.getKeyChainData(key: userNameTextField.text!) {
             let result2 = String(decoding: myCredentials, as: UTF8.self)
             welcomeVC.userCred = result2
         }
-        
         resetTextFields()
     }
 }

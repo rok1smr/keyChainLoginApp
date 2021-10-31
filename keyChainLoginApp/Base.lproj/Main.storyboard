@@ -104,10 +104,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="oLs-DF-X3O">
-                                <rect key="frame" x="122.5" y="177" width="169" height="542.5"/>
+                                <rect key="frame" x="122.5" y="211" width="169" height="474.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sKv-8p-Kew">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="184"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="169" height="116"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZN-VJ-WGJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="169" height="48"/>
@@ -121,31 +121,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_______" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsK-Eq-LRL">
-                                                <rect key="frame" x="0.0" y="136" width="169" height="48"/>
-                                                <color key="backgroundColor" red="0.91980725529999996" green="0.85033012180000001" blue="0.013272197059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🤘🏻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS6-mm-7cd">
-                                        <rect key="frame" x="45" y="244" width="79" height="87.5"/>
+                                        <rect key="frame" x="45" y="176" width="79" height="87.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="73"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-um-b8e">
-                                        <rect key="frame" x="44.5" y="391.5" width="80" height="41"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="________" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7d-um-b8e">
+                                        <rect key="frame" x="13" y="323.5" width="143" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xch-LZ-Ez2">
-                                        <rect key="frame" x="24" y="492.5" width="121" height="50"/>
+                                        <rect key="frame" x="24" y="424.5" width="121" height="50"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Log out">
+                                        <buttonConfiguration key="configuration" style="gray" title="Log out">
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -163,8 +156,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dynamicPasswordLabel" destination="PsK-Eq-LRL" id="nFW-eO-USJ"/>
                         <outlet property="dynamicUserNameLabel" destination="H74-PP-ylz" id="20M-1o-Ede"/>
+                        <outlet property="logOutButton" destination="Xch-LZ-Ez2" id="u5M-66-Ngd"/>
                         <outlet property="userCredentials" destination="X7d-um-b8e" id="fqq-MF-FVc"/>
                         <segue destination="rEh-Y7-hC7" kind="unwind" identifier="unwindToLogin" unwindAction="unwind:" id="bYz-UJ-vG1"/>
                     </connections>
