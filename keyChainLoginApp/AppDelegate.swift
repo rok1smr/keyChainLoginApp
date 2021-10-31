@@ -14,6 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+//        let stringToSave = "TestString"
+//        let key = "myString"
+//        keyChainClass.save(key: key, data: Data(stringToSave.utf8) )
+//
+//        let resultData = keyChainClass.getKeyChainData(key: key)
+//
+//        if let data = resultData {
+//            let resultString = String(data: data, encoding: .utf8)
+//            print("Got \(resultString)!")
+//        }
+//
+//
         return true
     }
 
